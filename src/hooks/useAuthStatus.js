@@ -8,8 +8,7 @@ export const useAuthStatus = () => {
     const isMounted = useRef(true)
 
     useEffect(() => {
-        console.log('isMounted: ' + isMounted.current)
-        if(isMounted){
+        if(isMounted.current){
             return () => {
                 console.log('creating auth object...')
                 const auth = getAuth();
