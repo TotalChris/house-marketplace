@@ -7,12 +7,10 @@ import {toast} from "react-toastify";
 import arrowRight from '../assets/svg/keyboardArrowRightIcon.svg';
 import homeIcon from '../assets/svg/homeIcon.svg'
 import ListingItem from "../components/ListingItem";
-import Spinner from "../components/Spinner";
 
 const Profile = () => {
 
     const [editingProfile, setEditingProfile] = useState(false);
-    const [loading, setLoading] = useState(true);
     const [userListings, setUserListings] = useState([])
     const navigate = useNavigate();
     const auth = getAuth();
@@ -38,7 +36,6 @@ const Profile = () => {
             })
 
             setUserListings(listingsResults);
-            setLoading(false);
         }
 
         fetchUserListings();
@@ -83,10 +80,6 @@ const Profile = () => {
             ...prevState,
             [e.target.id]: e.target.value,
         }))
-    }
-
-    if(loading){
-        return <Spinner />
     }
 
     return <div className="profile">
