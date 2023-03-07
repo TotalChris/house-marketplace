@@ -8,6 +8,7 @@ const PrivateRoute = () => {
     const {loggedIn, checkingStatus} = useAuthStatus();
 
     if(checkingStatus){
+        console.log(loggedIn, checkingStatus)
         return <Spinner></Spinner>
     }
 
